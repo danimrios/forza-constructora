@@ -7,8 +7,8 @@ interface Stat {
 }
 
 const STATS: Stat[] = [
-  { end: 15, suffix: "+", label: "Años de experiencia" },
-  { end: 200, suffix: "+", label: "Obras ejecutadas" },
+  { end: 10, suffix: "+", label: "Años de experiencia" },
+  { end: 50, suffix: "+", label: "Obras ejecutadas" },
   { end: 4, suffix: "", label: "Especialidades" },
   { end: 100, suffix: "%", label: "Llave en mano" },
 ]

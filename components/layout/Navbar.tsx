@@ -3,16 +3,61 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X, ChevronDown } from "lucide-react"
-import { SERVICES } from "@/lib/services"
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Trophy,
+  Building2,
+  Wrench,
+  Factory,
+  Home,
+  Flame,
+} from "lucide-react"
 
 const NAV_LINKS = [
-  { label: "Inicio", href: "/" },
-  { label: "Nosotros", href: "/#nosotros" },
+  { label: "Nosotros", href: "/nosotros" },
   { label: "Contacto", href: "/#contacto" },
 ]
 
-const NAV_SERVICES = SERVICES.filter((s) => s.showInGrid || s.slug === "complejos-deportivos" || s.slug === "edificios")
+const DROPDOWN_ITEMS = [
+  {
+    Icon: Trophy,
+    label: "Complejos Deportivos",
+    tagline: "Pádel y deportes llave en mano",
+    href: "/servicios/complejos-deportivos",
+  },
+  {
+    Icon: Building2,
+    label: "Arquitectura Metálica",
+    tagline: "Edificios y casas en estructura de acero",
+    href: "/servicios/arquitectura-metalica",
+  },
+  {
+    Icon: Wrench,
+    label: "Reparación y Mantenimiento",
+    tagline: "Intervención sin frenar tu producción",
+    href: "/servicios/mantenimiento",
+  },
+  {
+    Icon: Factory,
+    label: "Soluciones Industriales",
+    tagline: "Naves, galpones y depósitos",
+    href: "/servicios/industrial",
+  },
+  {
+    Icon: Home,
+    label: "Viviendas Steel Frame",
+    tagline: "Construcción en seco de alta prestación",
+    href: "/servicios/viviendas",
+  },
+  {
+    Icon: Flame,
+    label: "Redes de Incendio",
+    tagline: "Sistemas contra incendio de alta gama",
+    href: "/servicios/redes-incendio",
+  },
+]
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -49,7 +94,10 @@ export function Navbar() {
           {/* Desktop nav */}
           <ul className="hidden md:flex items-center gap-10">
             <li>
-              <Link href="/" className="text-primary hover:text-brand-gold transition-colors duration-200 text-base font-semibold tracking-wide">
+              <Link
+                href="/"
+                className="text-primary hover:text-brand-gold transition-colors duration-200 text-base font-semibold tracking-wide"
+              >
                 Inicio
               </Link>
             </li>
@@ -60,22 +108,34 @@ export function Navbar() {
                 Servicios
                 <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />
               </button>
-              <div className="absolute top-full left-0 pt-2 hidden group-hover:block z-50">
-                <div className="bg-brand-dark border border-white/10 py-2 min-w-[220px]">
-                  <Link
-                    href="/#servicios"
-                    className="block px-5 py-2.5 text-muted hover:text-brand-gold hover:bg-white/5 transition-colors text-sm"
-                  >
-                    Ver todos los servicios
-                  </Link>
-                  <div className="border-t border-white/5 my-1" />
-                  {NAV_SERVICES.map((s) => (
+
+              {/* Dropdown panel */}
+              <div
+                className="
+                  absolute top-full left-0 pt-3 z-50
+                  opacity-0 -translate-y-1 pointer-events-none
+                  group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto
+                  transition-all duration-200 ease-out
+                "
+              >
+                <div className="bg-brand-dark border border-white/10 shadow-2xl min-w-[280px]">
+                  {DROPDOWN_ITEMS.map((item, i) => (
                     <Link
-                      key={s.slug}
-                      href={s.href}
-                      className="block px-5 py-2.5 text-muted hover:text-brand-gold hover:bg-white/5 transition-colors text-sm"
+                      key={item.href}
+                      href={item.href}
+                      className={`
+                        flex items-center gap-4 py-4 pl-[18px] pr-5
+                        border-l-2 border-transparent
+                        hover:border-brand-gold hover:bg-brand-surface
+                        transition-colors duration-150
+                        ${i < DROPDOWN_ITEMS.length - 1 ? "border-b border-white/5" : ""}
+                      `}
                     >
-                      {s.title}
+                      <item.Icon className="text-brand-gold w-5 h-5 shrink-0" />
+                      <div>
+                        <p className="text-primary text-sm font-semibold">{item.label}</p>
+                        <p className="text-muted text-xs mt-0.5">{item.tagline}</p>
+                      </div>
                     </Link>
                   ))}
                 </div>
@@ -144,21 +204,25 @@ export function Navbar() {
           </button>
         </div>
 
-        <nav className="flex flex-col px-6 py-8 gap-6">
-          <Link href="/" onClick={() => setIsOpen(false)} className="text-primary hover:text-brand-gold transition-colors duration-200 text-xl font-semibold">
+        <nav className="flex flex-col px-6 py-8 gap-6 overflow-y-auto">
+          <Link
+            href="/"
+            onClick={() => setIsOpen(false)}
+            className="text-primary hover:text-brand-gold transition-colors duration-200 text-xl font-semibold"
+          >
             Inicio
           </Link>
           <div>
             <span className="text-primary text-xl font-semibold">Servicios</span>
             <div className="flex flex-col gap-3 mt-3 pl-4 border-l border-white/10">
-              {NAV_SERVICES.map((s) => (
+              {DROPDOWN_ITEMS.map((item) => (
                 <Link
-                  key={s.slug}
-                  href={s.href}
+                  key={item.href}
+                  href={item.href}
                   onClick={() => setIsOpen(false)}
                   className="text-muted hover:text-brand-gold transition-colors duration-200 text-base"
                 >
-                  {s.title}
+                  {item.label}
                 </Link>
               ))}
             </div>
