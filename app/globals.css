@@ -1,26 +1,61 @@
 @import "tailwindcss";
 
+/* ── Design tokens ── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-brand-gold: #C9922A;
+  --color-brand-silver: #A8B0BC;
+  --color-brand-dark: #0A0A0A;
+  --color-brand-surface: #141414;
+  --color-brand-surface-hover: #1E1E1E;
+  --color-text-primary: #F5F5F5;
+  --color-text-muted: #9CA3AF;
 }
 
+/* ── Tailwind v4 theme (inline = no new CSS vars emitted, references :root) ── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand-gold: var(--color-brand-gold);
+  --color-brand-silver: var(--color-brand-silver);
+  --color-brand-dark: var(--color-brand-dark);
+  --color-brand-surface: var(--color-brand-surface);
+  --color-brand-surface-hover: var(--color-brand-surface-hover);
+  --color-primary: var(--color-text-primary);
+  --color-muted: var(--color-text-muted);
+
+  --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ── Animations ── */
+@keyframes bounce-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(10px);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-bounce-soft {
+  animation: bounce-soft 2s infinite;
+}
+
+/* ── Blueprint grid pattern ── */
+.bg-blueprint {
+  background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      rgba(255, 255, 255, 0.04) 39px,
+      rgba(255, 255, 255, 0.04) 40px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 39px,
+      rgba(255, 255, 255, 0.04) 39px,
+      rgba(255, 255, 255, 0.04) 40px
+    );
 }
