@@ -1,4 +1,11 @@
+import type { Metadata } from "next"
 import { Navbar } from "@/components/layout/Navbar"
+
+export const metadata: Metadata = {
+  title: 'Nosotros | El ADN Forza',
+  description: 'Conocé a Forza Constructora SRL: más de 100.000 m² ejecutados, +50 complejos deportivos entregados y capacidad de 800 m²/día en pavimentos industriales en Argentina.',
+  alternates: { canonical: 'https://forzaconstructora.com.ar/nosotros' },
+}
 import { Footer } from "@/components/layout/Footer"
 import { ContactCTA } from "@/components/home/ContactCTA"
 import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat"
@@ -7,8 +14,8 @@ import {
   Zap,
   ShieldCheck,
   FileCheck2,
-  Map,
   MapPin,
+  ExternalLink,
 } from "lucide-react"
 
 // ── Textos ───────────────────────────────────────────────────────────────────
@@ -68,8 +75,6 @@ const PILARES = {
 const MAPA = {
   label: "ALCANCE OPERATIVO",
   heading: "Operamos en todo el territorio.",
-  mapPlaceholder: "Mapa de operaciones",
-  mapBadge: "Buenos Aires · GBA · Interior del País",
   zonas: [
     { name: "CABA", sub: "Sede principal" },
     { name: "Gran Buenos Aires", sub: "Cobertura total" },
@@ -85,13 +90,13 @@ export default function NosotrosPage() {
       <Navbar />
       <main>
         {/* ── 1. MANIFIESTO ───────────────────────────────────────────── */}
-        <section className="bg-brand-surface py-24 px-6">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
+        <section className="bg-brand-surface py-12 md:py-24 px-4 md:px-6">
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 md:gap-16 items-start">
             <div className="lg:sticky lg:top-24">
               <p className="text-brand-gold tracking-widest text-xs uppercase mb-6">
                 {MANIFIESTO.label}
               </p>
-              <h2 className="font-heading font-black text-4xl text-primary leading-tight">
+              <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary leading-tight">
                 {MANIFIESTO.heading}
               </h2>
               <div className="w-16 h-1 bg-brand-gold mt-6" />
@@ -113,36 +118,36 @@ export default function NosotrosPage() {
         </section>
 
         {/* ── 2. HERO ─────────────────────────────────────────────────── */}
-        <section className="relative min-h-[80vh] bg-brand-dark flex items-end pb-20 overflow-hidden">
+        <section className="relative min-h-[80vh] bg-brand-dark flex items-end pb-12 md:pb-20 overflow-hidden">
           <div className="absolute inset-0 bg-blueprint" />
           <div className="absolute inset-0 bg-gradient-to-br from-brand-surface/80 via-transparent to-transparent" />
 
-          <div className="relative z-10 w-full max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-end">
+          <div className="relative z-10 w-full max-w-6xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-8 md:gap-16 items-end">
             <div>
               <p className="border-l-2 border-brand-gold pl-4 mb-8 text-brand-gold tracking-[0.4em] text-xs font-semibold uppercase">
                 {HERO.eyebrow}
               </p>
-              <h1 className="font-heading font-black text-5xl md:text-7xl text-primary leading-none">
+              <h1 className="font-heading font-black text-3xl sm:text-4xl md:text-7xl text-primary leading-none">
                 {HERO.heading}
               </h1>
-              <p className="mt-6 text-muted text-xl leading-relaxed">
+              <p className="mt-6 text-muted text-base sm:text-xl leading-relaxed">
                 {HERO.subheading}
               </p>
             </div>
 
             <div className="lg:self-end">
-              <div className="bg-brand-surface border border-white/10 p-8">
+              <div className="bg-brand-surface border border-white/10 p-5 md:p-8">
                 <p className="text-brand-gold text-xs tracking-widest uppercase mb-4">
                   {HERO.capacidad.label}
                 </p>
-                <p className="font-heading font-black text-5xl text-primary">
+                <p className="font-heading font-black text-3xl sm:text-4xl md:text-5xl text-primary">
                   {HERO.capacidad.metric1}
                 </p>
                 <p className="text-muted text-sm mt-2">
                   {HERO.capacidad.metric1Text}
                 </p>
                 <div className="border-t border-white/10 mt-6 pt-6">
-                  <p className="font-heading font-black text-3xl text-primary">
+                  <p className="font-heading font-black text-2xl sm:text-3xl text-primary">
                     {HERO.capacidad.metric2}
                   </p>
                   <p className="text-muted text-sm mt-1">
@@ -155,12 +160,12 @@ export default function NosotrosPage() {
         </section>
 
         {/* ── 4. PILARES ──────────────────────────────────────────────── */}
-        <section className="bg-brand-dark py-24 px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+        <section className="bg-brand-dark py-12 md:py-24 px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
             <p className="text-brand-gold tracking-widest text-xs uppercase mb-4">
               {PILARES.label}
             </p>
-            <h2 className="font-heading font-black text-4xl text-primary">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary">
               {PILARES.heading}
             </h2>
           </div>
@@ -169,7 +174,7 @@ export default function NosotrosPage() {
             {PILARES.items.map((pilar) => (
               <div
                 key={pilar.title}
-                className="bg-brand-surface p-8 border-l-4 border-brand-gold flex gap-6 items-start"
+                className="bg-brand-surface p-5 md:p-8 border-l-4 border-brand-gold flex flex-col sm:flex-row gap-5 sm:gap-6 items-start"
               >
                 <pilar.icon className="text-brand-gold w-8 h-8 shrink-0" />
                 <div>
@@ -182,26 +187,43 @@ export default function NosotrosPage() {
         </section>
 
         {/* ── 5. MAPA DE OPERACIONES ──────────────────────────────────── */}
-        <section className="bg-brand-dark py-24 px-6">
-          <div className="text-center mb-16">
+        <section className="bg-brand-dark py-12 md:py-24 px-4 md:px-6">
+          <div className="text-center mb-8 md:mb-16">
             <p className="text-brand-gold tracking-widest text-xs uppercase mb-4">
               {MAPA.label}
             </p>
-            <h2 className="font-heading font-black text-4xl text-primary">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary">
               {MAPA.heading}
             </h2>
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="bg-brand-surface border border-white/10 aspect-video flex items-center justify-center relative overflow-hidden">
-              <Map className="text-brand-gold/10 w-32 h-32 absolute" />
-              <span className="relative text-white/20 text-sm">{MAPA.mapPlaceholder}</span>
-              <span className="text-brand-gold text-xs tracking-widest absolute bottom-6">
-                {MAPA.mapBadge}
-              </span>
+            <div className="aspect-video w-full border border-white/10 overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.5!2d-58.7057!3d-34.5066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDMwJzIzLjgiUyA1OMKwNDInMjAuNSJX!5e0!3m2!1ses!2sar!4v1"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: 'grayscale(1) invert(0.9) contrast(1.1)' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ubicación Forza Constructora SRL"
+              />
             </div>
 
-            <div className="flex justify-center gap-12 mt-10">
+            <div className="flex justify-end mt-3">
+              <a
+                href="https://maps.google.com/?q=Los+Polvorines,+Buenos+Aires,+Argentina"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-brand-gold text-sm font-semibold hover:text-primary transition-colors"
+              >
+                <ExternalLink className="w-4 h-4" />
+                Abrir en Google Maps
+              </a>
+            </div>
+
+            <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-12 mt-8 md:mt-10">
               {MAPA.zonas.map((zona) => (
                 <div key={zona.name} className="text-center">
                   <MapPin className="text-brand-gold w-5 h-5 mx-auto mb-2" />

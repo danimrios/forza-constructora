@@ -16,12 +16,12 @@ const INSTAGRAM_URL = "https://www.instagram.com/forzaconstructora/"
 
 export function ContactCTA() {
   return (
-    <section id="contacto" className="relative bg-brand-surface py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section id="contacto" className="relative bg-brand-surface py-12 md:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Blueprint pattern */}
       <div className="absolute inset-0 bg-blueprint" />
 
       <div className="relative z-10 max-w-2xl mx-auto text-center">
-        <h2 className="font-heading font-black text-4xl text-primary">
+        <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary">
           ¿Tenés un proyecto en mente?
         </h2>
         <p className="text-muted mt-4">

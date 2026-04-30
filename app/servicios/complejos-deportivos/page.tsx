@@ -7,10 +7,20 @@ import { ContactCTA } from "@/components/home/ContactCTA"
 import { getServiceBySlug } from "@/lib/services"
 import { WA_ENTREVISTA_COMPLEJO } from "@/lib/whatsapp"
 
-export const metadata = {
-  title: "Complejos Deportivos — Forza Constructora SRL",
-  description:
-    "Construcción de complejos deportivos llave en mano: pádel, gimnasio y más. Movimiento de suelos, estructura completa y terminaciones premium.",
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'Complejos Deportivos de Pádel Llave en Mano',
+  description: 'Construimos complejos de pádel y deportivos llave en mano en Buenos Aires. Desde movimiento de suelos hasta terminaciones premium. Gestión integral.',
+  keywords: [
+    'complejo de padel llave en mano',
+    'construcción cancha de padel',
+    'complejo deportivo Buenos Aires',
+    'padel inversor',
+  ],
+  alternates: {
+    canonical: 'https://forzaconstructora.com.ar/servicios/complejos-deportivos',
+  },
 }
 
 const MODALITIES = [
@@ -117,18 +127,18 @@ export default function ComplejosDeportivosPage() {
             <span className="inline-block bg-brand-gold/10 text-brand-gold text-xs tracking-widest uppercase px-3 py-1 mb-4">
               {service.category}
             </span>
-            <h1 className="font-heading font-black text-5xl text-primary leading-tight">
+            <h1 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl text-primary leading-tight">
               {service.title}
             </h1>
-            <p className="text-brand-gold text-xl mt-2">{service.tagline}</p>
+            <p className="text-brand-gold text-base sm:text-xl mt-2">{service.tagline}</p>
           </div>
         </section>
 
 
         {/* Módulo 1 — Propuesta de Valor */}
-        <section className="bg-brand-surface py-24">
+        <section className="bg-brand-surface py-12 md:py-24">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <h2 className="font-heading font-black text-4xl text-primary">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary">
               {PROPUESTA_VALOR.heading}
             </h2>
             <p className="text-muted leading-relaxed text-lg mt-6">{PROPUESTA_VALOR.p1}</p>
@@ -137,13 +147,13 @@ export default function ComplejosDeportivosPage() {
         </section>
 
         {/* Módulo 2 — Metodología */}
-        <section className="bg-brand-dark py-24">
-          <h2 className="font-heading font-black text-4xl text-primary mb-16 text-center px-6">
+        <section className="bg-brand-dark py-12 md:py-24">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary mb-8 md:mb-16 text-center px-6">
             {METODOLOGIA_HEADING}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto px-6">
             {ETAPAS.map((etapa) => (
-              <article key={etapa.number} className="bg-brand-surface p-8 border-t-2 border-brand-gold">
+              <article key={etapa.number} className="bg-brand-surface p-5 md:p-8 border-t-2 border-brand-gold">
                 <span className="text-brand-gold font-black text-5xl font-heading opacity-30">
                   {etapa.number}
                 </span>
@@ -155,8 +165,8 @@ export default function ComplejosDeportivosPage() {
         </section>
 
         {/* Módulo 3 — Beneficios para el Inversor */}
-        <section className="bg-brand-surface py-24 px-6">
-          <h2 className="font-heading font-black text-4xl text-primary mb-16 text-center max-w-3xl mx-auto">
+        <section className="bg-brand-surface py-12 md:py-24 px-4 md:px-6">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary mb-8 md:mb-16 text-center max-w-3xl mx-auto">
             {BENEFICIOS_HEADING}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
@@ -171,7 +181,7 @@ export default function ComplejosDeportivosPage() {
         </section>
 
         {/* Módulo 4 — CTA Final */}
-        <section className="relative bg-brand-dark py-24 px-6 overflow-hidden">
+        <section className="relative bg-brand-dark py-12 md:py-24 px-4 md:px-6 overflow-hidden">
           <div className="absolute inset-0 bg-blueprint" />
           <div className="relative z-10 max-w-2xl mx-auto text-center">
             <blockquote className="border-l-4 border-brand-gold pl-6 text-left mb-12">
@@ -182,7 +192,7 @@ export default function ComplejosDeportivosPage() {
               href={WA_ENTREVISTA_COMPLEJO}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-brand-gold text-brand-dark font-bold tracking-widest px-12 py-5 mt-10 hover:brightness-110 transition-all"
+              className="inline-flex items-center gap-3 bg-brand-gold text-brand-dark font-bold tracking-widest px-6 py-4 md:px-12 md:py-5 mt-10 hover:brightness-110 transition-all"
             >
               {CTA_FINAL.cta}
               <ArrowRight className="w-5 h-5" />
@@ -191,7 +201,7 @@ export default function ComplejosDeportivosPage() {
         </section>
 
         {/* Modalities */}
-        <section className="bg-brand-dark py-24 px-4 sm:px-6 lg:px-8">
+        <section className="bg-brand-dark py-12 md:py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <h2 className="font-heading font-black text-3xl text-primary mb-12 text-center">
               Modalidades
@@ -200,7 +210,7 @@ export default function ComplejosDeportivosPage() {
               {MODALITIES.map((m) => (
                 <article
                   key={m.title}
-                  className="bg-brand-surface border border-white/5 p-8"
+                  className="bg-brand-surface border border-white/5 p-5 md:p-8"
                 >
                   <m.icon className="w-8 h-8 text-brand-gold mb-4" />
                   <h3 className="font-heading font-bold text-primary text-xl mb-3">{m.title}</h3>

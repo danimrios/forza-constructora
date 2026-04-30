@@ -1,4 +1,11 @@
+import type { Metadata } from "next"
 import { Navbar } from "@/components/layout/Navbar"
+
+export const metadata: Metadata = {
+  title: 'Inicio',
+  description: 'Forza Constructora SRL: complejos de pádel, estructuras metálicas, mantenimiento industrial y redes de incendio en Buenos Aires y GBA. Llave en mano.',
+  alternates: { canonical: 'https://forzaconstructora.com.ar' },
+}
 import { Footer } from "@/components/layout/Footer"
 import { Hero } from "@/components/home/Hero"
 import { FeaturedService } from "@/components/home/FeaturedService"

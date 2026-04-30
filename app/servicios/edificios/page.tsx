@@ -7,10 +7,20 @@ import { ContactCTA } from "@/components/home/ContactCTA"
 import { getServiceBySlug } from "@/lib/services"
 import { WA_PROYECTO_METALICO } from "@/lib/whatsapp"
 
-export const metadata = {
-  title: "Edificios en Estructura Metálica — Forza Constructora SRL",
-  description:
-    "Diseño y ejecución de edificios de varios niveles con acero galvanizado. Grandes luces, plantas libres y fachadas de alto rendimiento.",
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'Arquitectura Metálica | Edificios y Casas en Estructura de Acero',
+  description: 'Diseñamos y ejecutamos edificios y viviendas en estructura metálica en Argentina. Construcción en seco, precisión milimétrica y hasta 40% más rápido que el hormigón.',
+  keywords: [
+    'estructura metálica Argentina',
+    'edificios acero galvanizado',
+    'construcción en seco',
+    'steel frame Buenos Aires',
+  ],
+  alternates: {
+    canonical: 'https://forzaconstructora.com.ar/servicios/edificios',
+  },
 }
 
 const PROPUESTA_VALOR = {
@@ -128,17 +138,17 @@ export default function EdificiosPage() {
             <span className="inline-block bg-brand-gold/10 text-brand-gold text-xs tracking-widest uppercase px-3 py-1 mb-4">
               {service.category}
             </span>
-            <h1 className="font-heading font-black text-5xl text-primary leading-tight">
+            <h1 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl text-primary leading-tight">
               {service.title}
             </h1>
-            <p className="text-brand-gold text-xl mt-2">{service.tagline}</p>
+            <p className="text-brand-gold text-base sm:text-xl mt-2">{service.tagline}</p>
           </div>
         </section>
 
         {/* Módulo 1 — Propuesta de Valor */}
-        <section className="bg-brand-surface py-24">
+        <section className="bg-brand-surface py-12 md:py-24">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <h2 className="font-heading font-black text-4xl text-primary">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary">
               {PROPUESTA_VALOR.heading}
             </h2>
             <p className="text-muted leading-relaxed text-lg mt-6">{PROPUESTA_VALOR.p1}</p>
@@ -147,13 +157,13 @@ export default function EdificiosPage() {
         </section>
 
         {/* Módulo 2 — Desglose Técnico */}
-        <section className="bg-brand-dark py-24">
-          <h2 className="font-heading font-black text-4xl text-primary mb-16 text-center px-6">
+        <section className="bg-brand-dark py-12 md:py-24">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary mb-8 md:mb-16 text-center px-6">
             {DESGLOSE_HEADING}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto px-6">
             {DESGLOSE.map((item) => (
-              <article key={item.number} className="bg-brand-surface p-8 border-t-2 border-brand-gold">
+              <article key={item.number} className="bg-brand-surface p-5 md:p-8 border-t-2 border-brand-gold">
                 <span className="text-brand-gold font-black text-5xl font-heading opacity-30">
                   {item.number}
                 </span>
@@ -165,13 +175,13 @@ export default function EdificiosPage() {
         </section>
 
         {/* Módulo 3 — Alcance del Servicio */}
-        <section className="bg-brand-surface py-24 px-6">
-          <h2 className="font-heading font-black text-4xl text-primary mb-16 text-center max-w-3xl mx-auto">
+        <section className="bg-brand-surface py-12 md:py-24 px-4 md:px-6">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary mb-8 md:mb-16 text-center max-w-3xl mx-auto">
             {ALCANCE_HEADING}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {ALCANCE.map((item) => (
-              <div key={item.title} className="bg-brand-dark p-8 flex gap-5 items-start">
+              <div key={item.title} className="bg-brand-dark p-5 md:p-8 flex flex-col sm:flex-row gap-5 items-start">
                 <item.Icon className="text-brand-gold w-8 h-8 shrink-0" />
                 <div>
                   <h3 className="text-primary font-bold text-lg">{item.title}</h3>
@@ -183,10 +193,10 @@ export default function EdificiosPage() {
         </section>
 
         {/* Módulo 4 — CTA Final */}
-        <section className="relative bg-brand-dark py-24 px-6 overflow-hidden">
+        <section className="relative bg-brand-dark py-12 md:py-24 px-4 md:px-6 overflow-hidden">
           <div className="absolute inset-0 bg-blueprint" />
           <div className="relative z-10 max-w-2xl mx-auto text-center">
-            <h2 className="font-heading font-black text-4xl text-primary mb-8">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary mb-8">
               {CTA_METALICO.heading}
             </h2>
             <p className="text-muted text-lg leading-relaxed">{CTA_METALICO.body}</p>
@@ -194,7 +204,7 @@ export default function EdificiosPage() {
               href={WA_PROYECTO_METALICO}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-brand-gold text-brand-dark font-bold tracking-widest px-12 py-5 mt-10 hover:brightness-110 transition-all"
+              className="inline-flex items-center gap-3 bg-brand-gold text-brand-dark font-bold tracking-widest px-6 py-4 md:px-12 md:py-5 mt-10 hover:brightness-110 transition-all"
             >
               {CTA_METALICO.cta}
               <ArrowRight className="w-5 h-5" />
@@ -203,14 +213,14 @@ export default function EdificiosPage() {
         </section>
 
         {/* Ventajas */}
-        <section className="bg-brand-dark py-24 px-4 sm:px-6 lg:px-8">
+        <section className="bg-brand-dark py-12 md:py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <h2 className="font-heading font-black text-3xl text-primary mb-12 text-center">
               ¿Por qué estructura metálica?
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {VENTAJAS.map((v) => (
-                <article key={v.title} className="bg-brand-surface border-t-2 border-brand-gold p-8">
+                <article key={v.title} className="bg-brand-surface border-t-2 border-brand-gold p-5 md:p-8">
                   <h3 className="font-heading font-bold text-primary text-xl mb-3">{v.title}</h3>
                   <p className="text-muted text-sm leading-relaxed">{v.description}</p>
                 </article>

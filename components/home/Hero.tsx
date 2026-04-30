@@ -41,14 +41,14 @@ export function Hero() {
         </div>
 
         {/* Headline */}
-        <h1 className="font-heading font-black text-5xl md:text-7xl text-primary leading-tight">
+        <h1 className="font-heading font-black text-3xl sm:text-4xl md:text-7xl text-primary leading-tight">
           Construimos lo que
           <br />
           otros no pueden
         </h1>
 
         {/* Subtitle */}
-        <p className="text-muted text-xl mt-6 max-w-xl">
+        <p className="text-muted text-base sm:text-xl mt-6 max-w-xl">
           De la estructura al detalle premium. Llave en mano.
         </p>
 

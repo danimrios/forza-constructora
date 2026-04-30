@@ -6,10 +6,20 @@ import { Footer } from "@/components/layout/Footer"
 import { ContactCTA } from "@/components/home/ContactCTA"
 import { getServiceBySlug } from "@/lib/services"
 
-export const metadata = {
-  title: "Redes de Incendio — Forza Constructora SRL",
-  description:
-    "Diseño e instalación de sistemas contra incendio de alta gama. Rociadores, hidrantes y cumplimiento normativo completo.",
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'Redes de Incendio | Sistemas Contra Incendio de Alta Gama',
+  description: 'Diseño e instalación de redes de incendio, sprinklers e hidrantes en plantas industriales y complejos en Argentina. Cumplimiento NFPA y normativa local.',
+  keywords: [
+    'redes de incendio industriales',
+    'instalación sprinklers Argentina',
+    'sistemas contra incendio Buenos Aires',
+    'hidrantes industriales NFPA',
+  ],
+  alternates: {
+    canonical: 'https://forzaconstructora.com.ar/servicios/redes-incendio',
+  },
 }
 
 // ── Módulo 1: Propuesta de Valor ────────────────────────────────
@@ -118,17 +128,17 @@ export default function RedesIncendioPage() {
             <span className="inline-block bg-brand-gold/10 text-brand-gold text-xs tracking-widest uppercase px-3 py-1 mb-4">
               {service.category}
             </span>
-            <h1 className="font-heading font-black text-5xl text-primary leading-tight">
+            <h1 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl text-primary leading-tight">
               {service.title}
             </h1>
-            <p className="text-brand-gold text-xl mt-2">{service.tagline}</p>
+            <p className="text-brand-gold text-base sm:text-xl mt-2">{service.tagline}</p>
           </div>
         </section>
 
         {/* Módulo 1 — Propuesta de Valor */}
-        <section className="bg-brand-surface py-24">
+        <section className="bg-brand-surface py-12 md:py-24">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <h2 className="font-heading font-black text-4xl text-primary">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary">
               {VALOR_TITULO}
             </h2>
             <p className="text-muted leading-relaxed text-lg mt-6">{VALOR_P1}</p>
@@ -137,15 +147,15 @@ export default function RedesIncendioPage() {
         </section>
 
         {/* Módulo 2 — Especificaciones Técnicas */}
-        <section className="bg-brand-dark py-24">
-          <h2 className="font-heading font-black text-4xl text-primary text-center mb-16 px-6">
+        <section className="bg-brand-dark py-12 md:py-24">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary text-center mb-8 md:mb-16 px-6">
             {SPECS_TITULO}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto px-6">
             {SPECS_CARDS.map((card) => (
               <div
                 key={card.num}
-                className="bg-brand-surface p-8 border-t-2 border-brand-gold"
+                className="bg-brand-surface p-5 md:p-8 border-t-2 border-brand-gold"
               >
                 <span className="font-heading font-black text-5xl text-brand-gold opacity-30 block">
                   {card.num}
@@ -158,13 +168,13 @@ export default function RedesIncendioPage() {
         </section>
 
         {/* Módulo 3 — Valor Agregado Forza */}
-        <section className="bg-brand-surface py-24 px-6">
-          <h2 className="font-heading font-black text-4xl text-primary text-center max-w-3xl mx-auto mb-16">
+        <section className="bg-brand-surface py-12 md:py-24 px-4 md:px-6">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary text-center max-w-3xl mx-auto mb-8 md:mb-16">
             {FORZA_TITULO}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {FORZA_ITEMS.map(({ Icon, titulo, texto }) => (
-              <div key={titulo} className="bg-brand-dark p-8 flex gap-5 items-start">
+              <div key={titulo} className="bg-brand-dark p-5 md:p-8 flex flex-col sm:flex-row gap-5 items-start">
                 <Icon className="text-brand-gold w-8 h-8 shrink-0" />
                 <div>
                   <h3 className="text-primary font-bold text-lg">{titulo}</h3>
@@ -176,9 +186,9 @@ export default function RedesIncendioPage() {
         </section>
 
         {/* Módulo 4 — CTA Final */}
-        <section className="bg-brand-dark bg-blueprint py-24 px-6">
+        <section className="bg-brand-dark bg-blueprint py-12 md:py-24 px-4 md:px-6">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="font-heading font-black text-4xl text-primary mb-8">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary mb-8">
               {CTA_TITULO}
             </h2>
             <p className="text-muted text-lg leading-relaxed">{CTA_PARRAFO}</p>
@@ -189,7 +199,7 @@ export default function RedesIncendioPage() {
             </div>
             <Link
               href="#contacto"
-              className="inline-flex items-center gap-3 bg-brand-gold text-brand-dark font-bold tracking-widest px-12 py-5 mt-10 hover:brightness-110 transition-all"
+              className="inline-flex items-center gap-3 bg-brand-gold text-brand-dark font-bold tracking-widest px-6 py-4 md:px-12 md:py-5 mt-10 hover:brightness-110 transition-all"
             >
               {CTA_BOTON}
               <ArrowRight className="w-5 h-5" />

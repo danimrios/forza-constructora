@@ -7,10 +7,21 @@ import { ContactCTA } from "@/components/home/ContactCTA"
 import { getServiceBySlug } from "@/lib/services"
 import { WA_VIVIENDAS } from "@/lib/whatsapp"
 
-export const metadata = {
-  title: "Viviendas Steel Frame — Forza Constructora SRL",
-  description:
-    "Viviendas premium con estructura de acero galvanizado (Steel Frame). Construcción en seco de alta prestación, aislamiento térmico superior y tiempos de entrega exactos.",
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'Viviendas Steel Frame | Casas de Alta Gama en Acero',
+  description: 'Viviendas premium en steel frame con acero galvanizado. Construcción en seco, 50% más rápido, aislamiento superior y diseño personalizado en Argentina.',
+  keywords: [
+    'viviendas steel frame Argentina',
+    'casas acero galvanizado',
+    'construcción en seco viviendas',
+    'steel frame Buenos Aires',
+    'Forza Alpina',
+  ],
+  alternates: {
+    canonical: 'https://forzaconstructora.com.ar/servicios/viviendas',
+  },
 }
 
 // ── Módulo 1: Propuesta de Valor ────────────────────────────────
@@ -123,17 +134,17 @@ export default function ViviendasPage() {
             <span className="inline-block bg-brand-gold/10 text-brand-gold text-xs tracking-widest uppercase px-3 py-1 mb-4">
               {service.category}
             </span>
-            <h1 className="font-heading font-black text-5xl text-primary leading-tight">
+            <h1 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl text-primary leading-tight">
               {service.title}
             </h1>
-            <p className="text-brand-gold text-xl mt-2">{service.tagline}</p>
+            <p className="text-brand-gold text-base sm:text-xl mt-2">{service.tagline}</p>
           </div>
         </section>
 
         {/* Módulo 1 — Propuesta de Valor */}
-        <section className="bg-brand-surface py-24">
+        <section className="bg-brand-surface py-12 md:py-24">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <h2 className="font-heading font-black text-4xl text-primary">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary">
               {VALOR_HEADING}
             </h2>
             <p className="text-muted leading-relaxed text-lg mt-6">
@@ -146,13 +157,13 @@ export default function ViviendasPage() {
         </section>
 
         {/* Módulo 2 — Atributos Técnicos */}
-        <section className="bg-brand-dark py-24">
-          <h2 className="font-heading font-black text-4xl text-primary mb-16 text-center px-6">
+        <section className="bg-brand-dark py-12 md:py-24">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary mb-8 md:mb-16 text-center px-6">
             {ATRIBUTOS_HEADING}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto px-6">
             {ATRIBUTOS.map((item) => (
-              <article key={item.title} className="bg-brand-surface p-8 border-t-2 border-brand-gold">
+              <article key={item.title} className="bg-brand-surface p-5 md:p-8 border-t-2 border-brand-gold">
                 <item.Icon className="text-brand-gold w-8 h-8 mb-4" />
                 <h3 className="text-primary font-bold text-xl">{item.title}</h3>
                 <p className="text-muted text-sm leading-relaxed mt-3">{item.text}</p>
@@ -167,8 +178,8 @@ export default function ViviendasPage() {
         </section>
 
         {/* Módulo 3 — Comparativa de Tiempo */}
-        <section className="bg-brand-surface py-24 px-6">
-          <h2 className="font-heading font-black text-4xl text-primary mb-16 text-center max-w-3xl mx-auto">
+        <section className="bg-brand-surface py-12 md:py-24 px-4 md:px-6">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary mb-8 md:mb-16 text-center max-w-3xl mx-auto">
             {COMPARATIVA_HEADING}
           </h2>
           <div className="max-w-2xl mx-auto flex flex-col gap-8">
@@ -208,13 +219,13 @@ export default function ViviendasPage() {
         </section>
 
         {/* Módulo 4 — Alcance del Servicio */}
-        <section className="bg-brand-dark py-24 px-6">
-          <h2 className="font-heading font-black text-4xl text-primary mb-16 text-center max-w-3xl mx-auto">
+        <section className="bg-brand-dark py-12 md:py-24 px-4 md:px-6">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary mb-8 md:mb-16 text-center max-w-3xl mx-auto">
             {ALCANCE_HEADING}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {ALCANCE.map((item) => (
-              <div key={item.title} className="bg-brand-surface p-8 flex gap-5 items-start">
+              <div key={item.title} className="bg-brand-surface p-5 md:p-8 flex flex-col sm:flex-row gap-5 items-start">
                 <item.Icon className="text-brand-gold w-8 h-8 shrink-0" />
                 <div>
                   <h3 className="text-primary font-bold text-lg">{item.title}</h3>
@@ -226,10 +237,10 @@ export default function ViviendasPage() {
         </section>
 
         {/* Módulo 5 — CTA Final */}
-        <section className="relative bg-brand-surface py-24 px-6 overflow-hidden">
+        <section className="relative bg-brand-surface py-12 md:py-24 px-4 md:px-6 overflow-hidden">
           <div className="absolute inset-0 bg-blueprint" />
           <div className="relative z-10 max-w-2xl mx-auto text-center">
-            <h2 className="font-heading font-black text-4xl text-primary mb-8">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary mb-8">
               {CTA_HEADING}
             </h2>
             <p className="text-muted text-lg leading-relaxed">{CTA_BODY}</p>
@@ -237,7 +248,7 @@ export default function ViviendasPage() {
               href={WA_VIVIENDAS}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-brand-gold text-brand-dark font-bold tracking-widest px-12 py-5 mt-10 hover:brightness-110 transition-all"
+              className="inline-flex items-center gap-3 bg-brand-gold text-brand-dark font-bold tracking-widest px-6 py-4 md:px-12 md:py-5 mt-10 hover:brightness-110 transition-all"
             >
               {CTA_BOTON}
               <ArrowRight className="w-5 h-5" />

@@ -60,15 +60,15 @@ export function FeaturedService({ slug, imageLeft = true }: FeaturedServiceProps
         </div>
 
         {/* Content */}
-        <div className="bg-brand-dark px-8 py-16 lg:px-16 flex flex-col justify-center">
+        <div className="bg-brand-dark px-5 py-8 md:px-8 md:py-16 lg:px-16 flex flex-col justify-center">
           <span className="inline-block bg-brand-gold/10 text-brand-gold text-xs tracking-widest uppercase px-3 py-1 mb-6 self-start">
             {service.category}
           </span>
 
-          <h2 className="font-heading font-black text-4xl lg:text-5xl text-primary leading-tight">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary leading-tight">
             {service.title}
           </h2>
-          <p className="text-brand-gold text-xl mt-2">{service.tagline}</p>
+          <p className="text-brand-gold text-base sm:text-xl mt-2">{service.tagline}</p>
 
           <p className="text-muted mt-6 leading-relaxed">{service.description}</p>
 

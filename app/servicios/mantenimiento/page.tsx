@@ -18,10 +18,20 @@ import { ContactCTA } from "@/components/home/ContactCTA"
 import { getServiceBySlug } from "@/lib/services"
 import { WA_MANTENIMIENTO } from "@/lib/whatsapp"
 
-export const metadata = {
-  title: "Reparación y Mantenimiento Industrial — Forza Constructora SRL",
-  description:
-    "Reparación de pisos de hormigón industrial, saneamiento de juntas, impermeabilización y pintura de estructuras. Soluciones para plantas activas sin parar la producción.",
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'Reparación y Mantenimiento Industrial',
+  description: 'Reparación de pisos industriales, juntas de dilatación, impermeabilización de techos y pintura estructural en plantas activas. Sin frenar tu producción.',
+  keywords: [
+    'reparación pisos industriales',
+    'mantenimiento planta industrial',
+    'remediación pavimentos hormigón',
+    'impermeabilización galpones',
+  ],
+  alternates: {
+    canonical: 'https://forzaconstructora.com.ar/servicios/mantenimiento',
+  },
 }
 
 // ── Módulo 1: Propuesta de Valor ────────────────────────────────
@@ -143,17 +153,17 @@ export default function MantenimientoPage() {
             <span className="inline-block bg-brand-gold/10 text-brand-gold text-xs tracking-widest uppercase px-3 py-1 mb-4">
               {service.category}
             </span>
-            <h1 className="font-heading font-black text-5xl text-primary leading-tight">
+            <h1 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl text-primary leading-tight">
               {service.title}
             </h1>
-            <p className="text-brand-gold text-xl mt-2">{service.tagline}</p>
+            <p className="text-brand-gold text-base sm:text-xl mt-2">{service.tagline}</p>
           </div>
         </section>
 
         {/* Módulo 1 — Propuesta de Valor */}
-        <section className="bg-brand-surface py-24">
+        <section className="bg-brand-surface py-12 md:py-24">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <h2 className="font-heading font-black text-4xl text-primary">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary">
               {VALOR_HEADING}
             </h2>
             <p className="text-muted leading-relaxed text-lg mt-6">{VALOR_P1}</p>
@@ -162,10 +172,10 @@ export default function MantenimientoPage() {
         </section>
 
         {/* Dato de Impacto */}
-        <div className="bg-brand-dark border-y border-brand-gold/20 py-14">
+        <div className="bg-brand-dark border-y border-brand-gold/20 py-10 md:py-14">
           <div className="max-w-2xl mx-auto px-6">
             <div className="flex flex-col sm:flex-row items-center gap-8">
-              <span className="font-heading font-black text-7xl text-brand-gold shrink-0">
+              <span className="font-heading font-black text-4xl sm:text-5xl md:text-7xl text-brand-gold shrink-0">
                 {IMPACTO_NUM}
               </span>
               <div>
@@ -177,13 +187,13 @@ export default function MantenimientoPage() {
         </div>
 
         {/* Módulo 2 — Especialidades Técnicas */}
-        <section className="bg-brand-dark py-24">
-          <h2 className="font-heading font-black text-4xl text-primary mb-16 text-center px-6">
+        <section className="bg-brand-dark py-12 md:py-24">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary mb-8 md:mb-16 text-center px-6">
             {SPECS_HEADING}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto px-6">
             {SPECS.map((item) => (
-              <article key={item.num} className="bg-brand-surface p-8 border-t-2 border-brand-gold">
+              <article key={item.num} className="bg-brand-surface p-5 md:p-8 border-t-2 border-brand-gold">
                 <item.Icon className="text-brand-gold w-8 h-8 mb-4" />
                 <span className="text-brand-gold/30 font-black text-3xl font-heading block">
                   {item.num}
@@ -196,13 +206,13 @@ export default function MantenimientoPage() {
         </section>
 
         {/* Módulo 3 — El Método Forza */}
-        <section className="bg-brand-surface py-24 px-6">
-          <h2 className="font-heading font-black text-4xl text-primary mb-16 text-center max-w-3xl mx-auto">
+        <section className="bg-brand-surface py-12 md:py-24 px-4 md:px-6">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary mb-8 md:mb-16 text-center max-w-3xl mx-auto">
             {METODO_HEADING}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {METODO.map((item) => (
-              <div key={item.title} className="bg-brand-dark p-8 flex gap-5 items-start">
+              <div key={item.title} className="bg-brand-dark p-5 md:p-8 flex flex-col sm:flex-row gap-5 items-start">
                 <item.Icon className="text-brand-gold w-8 h-8 shrink-0" />
                 <div>
                   <h3 className="text-primary font-bold text-lg">{item.title}</h3>
@@ -214,7 +224,7 @@ export default function MantenimientoPage() {
         </section>
 
         {/* Checklist */}
-        <section className="bg-brand-dark py-16 px-6">
+        <section className="bg-brand-dark py-10 md:py-16 px-4 md:px-6">
           <p className="text-muted text-sm tracking-widest uppercase mb-10 text-center">
             {CHECKLIST_HEADING}
           </p>
@@ -229,10 +239,10 @@ export default function MantenimientoPage() {
         </section>
 
         {/* Módulo 4 — CTA Final */}
-        <section className="relative bg-brand-surface py-24 px-6 overflow-hidden">
+        <section className="relative bg-brand-surface py-12 md:py-24 px-4 md:px-6 overflow-hidden">
           <div className="absolute inset-0 bg-blueprint" />
           <div className="relative z-10 max-w-2xl mx-auto text-center">
-            <h2 className="font-heading font-black text-4xl text-primary mb-8">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-primary mb-8">
               {CTA_HEADING}
             </h2>
             <p className="text-muted text-lg leading-relaxed">{CTA_BODY}</p>
@@ -240,7 +250,7 @@ export default function MantenimientoPage() {
               href={WA_MANTENIMIENTO}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-brand-gold text-brand-dark font-bold tracking-widest px-12 py-5 mt-10 hover:brightness-110 transition-all"
+              className="inline-flex items-center gap-3 bg-brand-gold text-brand-dark font-bold tracking-widest px-6 py-4 md:px-12 md:py-5 mt-10 hover:brightness-110 transition-all"
             >
               {CTA_BOTON}
               <ArrowRight className="w-5 h-5" />

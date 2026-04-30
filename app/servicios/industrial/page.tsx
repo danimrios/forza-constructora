@@ -6,10 +6,20 @@ import { Footer } from "@/components/layout/Footer"
 import { ContactCTA } from "@/components/home/ContactCTA"
 import { getServiceBySlug } from "@/lib/services"
 
-export const metadata = {
-  title: "Industrial — Forza Constructora SRL",
-  description:
-    "Naves, galpones y depósitos industriales. Recuperación de pavimentos, tratamiento de estructuras y mantenimiento integral de plantas.",
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'Soluciones Industriales | Naves, Galpones y Depósitos',
+  description: 'Construcción de naves industriales, galpones y depósitos en Buenos Aires y GBA. Diseño funcional, seguridad y logística de operación integradas.',
+  keywords: [
+    'construcción naves industriales',
+    'galpones Buenos Aires',
+    'depósitos logísticos Argentina',
+    'constructora industrial GBA',
+  ],
+  alternates: {
+    canonical: 'https://forzaconstructora.com.ar/servicios/industrial',
+  },
 }
 
 export default function IndustrialPage() {
@@ -36,16 +46,16 @@ export default function IndustrialPage() {
             <span className="inline-block bg-brand-gold/10 text-brand-gold text-xs tracking-widest uppercase px-3 py-1 mb-4">
               {service.category}
             </span>
-            <h1 className="font-heading font-black text-5xl text-primary leading-tight">
+            <h1 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl text-primary leading-tight">
               {service.title}
             </h1>
-            <p className="text-brand-gold text-xl mt-2">{service.tagline}</p>
+            <p className="text-brand-gold text-base sm:text-xl mt-2">{service.tagline}</p>
           </div>
         </section>
 
         {/* Description */}
-        <section className="bg-brand-surface py-24 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <section className="bg-brand-surface py-12 md:py-24 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
             <div>
               <p className="text-muted leading-relaxed text-lg">{service.description}</p>
             </div>

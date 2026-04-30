@@ -7,7 +7,7 @@ export function ServicesGrid() {
   const rest = gridServices.filter((s) => !s.featured)
 
   return (
-    <section className="bg-brand-surface py-24 px-4 sm:px-6 lg:px-8">
+    <section className="bg-brand-surface py-12 md:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
 
         {featured.length > 0 && (
