@@ -198,7 +198,7 @@ export default function NosotrosPage() {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="aspect-video w-full border border-white/10 overflow-hidden">
+            <div className="relative aspect-video w-full border border-white/10 overflow-hidden">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.5!2d-58.7057!3d-34.5066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDMwJzIzLjgiUyA1OMKwNDInMjAuNSJX!5e0!3m2!1ses!2sar!4v1"
                 width="100%"
@@ -209,6 +209,7 @@ export default function NosotrosPage() {
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Ubicación Forza Constructora SRL"
               />
+              <div className="absolute inset-0" />
             </div>
 
             <div className="flex justify-end mt-3">
