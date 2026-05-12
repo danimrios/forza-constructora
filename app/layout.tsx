@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import { Montserrat, Inter } from "next/font/google"
 import Script from "next/script"
 import "./globals.css"
-import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -109,10 +108,21 @@ export default function RootLayout({
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-J78K5Z4N2K"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-J78K5Z4N2K');
+          `}
+        </Script>
       </head>
       <body className="bg-brand-dark text-primary font-body antialiased">
         {children}
-        <GoogleAnalytics />
       </body>
     </html>
   )
